@@ -13,6 +13,10 @@ EMAIL_FROM = "notification@povinnosti.com"
 EMAIL_RECEIVERS = user.select(user.id, user.name) #alebo iba (user.name)
 message = pokuta.select(pokuta.message)
 notify = datetime.today()-timedelta(days=3)
+user = Join(user, Table('user'))
+pokuta = Join(pokuta, Table('pokuta'))
+
+vyber = pokuta.select(user.id, user.right.id, pokuta.right.id).where = pokuta.datum == notify
 """Nastavenie pre gmail
 """
 GMAIL_SMTP = "smtp.gmail.com"
@@ -33,7 +37,7 @@ def send_email(msg):
       print "Error: unable to send email :  {err}".format(err=error)
  
 def main():
-    if notify == True :
+    if vyber == True :
         send_email("Email was sent to") + listToStr(EMAIL RECEIVERS) + "\n";
  
 if __name__ == "__main__":
