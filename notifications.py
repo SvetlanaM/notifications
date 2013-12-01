@@ -27,7 +27,7 @@ def send_email(msg):
     msg_header = "From: " + EMAIL_FROM + "\n" + \
                  "To: " + listToStr(EMAIL_RECEIVERS) + "\n" + \
                  "Subject: " + EMAIL_SUBJECT + "\n"
-    msg_body =  message
+    msg_body =  "Here are your pokuta for" + message + "You should pay for it :) Have a nice day. :)"
  
     try:
         smtpObj = smtplib.SMTP('localhost')
