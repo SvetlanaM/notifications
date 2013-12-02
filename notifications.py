@@ -10,7 +10,7 @@ from datetime import date, timedelta
 
 EMAIL_SUBJECT = "Notification from povinnosti.com"
 EMAIL_FROM = "notification@povinnosti.com"
-EMAIL_RECEIVERS = user.select(user.id, user.name) #alebo iba (user.name)
+EMAIL_RECEIVERS = user.select(user.id, user.email) #alebo iba (user.name)
 message = pokuta.select(pokuta.message)
 notify = datetime.today()-timedelta(days=3)
 user = Join(user, Table('user'))
